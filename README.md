@@ -205,7 +205,16 @@ experiments/  experiments, plots and the video renderer
 docs/img/     figures used in this README
 ```
 
-## Data and licences
+## Licence
+
+- **Code:** MIT.
+- **Figures and video:** the figures in `docs/img/` and the rendered video are
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Reuse is welcome with credit and a link to this
+  repository.
+
+See [LICENSE](LICENSE).
+
+## Data sources and their licences
 
 - **MaleCNS v1.0** connectome: Janelia FlyEM, Cambridge Connectomics and Google Research, CC-BY 4.0.
 - **FlyWire 783** connectivity and annotations: as distributed by the Shiu model and FlyWire annotation
