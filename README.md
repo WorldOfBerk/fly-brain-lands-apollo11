@@ -13,18 +13,7 @@ The video, 1:52 long, is rendered by `experiments/make_video.py`.
 
 ## How it works
 
-```
- rendered terrain ──► compound eye ──► Reichardt motion ──► Poisson input ──► 165k-neuron LIF brain
- (Tranquility Base)   1296 ommatidia     detectors            LPLC2, T4/T5        (MaleCNS v1.0, GPU)
-                                                                                         │
-                ┌────────────────────────────────────────────────────────────────────────┘
-                ▼
-   Giant Fiber (DNp01) ─────────────► ROD switch: slower / faster descent
-   brake vs accel descending neurons ► hand controller: tilt back / forward
-                │
-                ▼
-   Apollo Guidance Computer, P66 (Luminary 099 equations) ──► DPS engine, RCS ──► LM physics
-```
+![Architecture: terrain, compound eye, motion detectors, fly brain, pilot's controls, Apollo Guidance Computer, engine, LM physics, closing the loop](docs/img/architecture.png)
 
 **Brain.** This is a PyTorch/CUDA port of the leaky integrate-and-fire model of
 [Shiu et al. (2024)](https://doi.org/10.1038/s41586-024-07763-9), with the same equations and parameters. It runs on the
@@ -39,7 +28,9 @@ model into a persistent state of ~20,000 active neurons, with every Kenyon cell 
 
 1. **Per-type rescaling to FlyWire.** Shiu's 0.275 mV/synapse was tuned on FlyWire synapse counts. Across
    7,223 matched cell types, MaleCNS counts a median of 1.80× more input synapses per neuron (IQR 1.43–2.38).
-   Each neuron's inputs are divided by its own type's ratio.
+   Each neuron's inputs are divided by its own type's ratio. FlyWire is a female brain and MaleCNS a male
+   one, so a small part of this ratio may reflect real sex differences. The MaleCNS paper finds that the
+   large majority of cell types are shared between the sexes.
 2. **Neuromodulators are not fast synapses.** Dopamine, serotonin and octopamine act through slow
    metabotropic receptors. The original model treated them as excitatory, and they supplied ~29 % of the
    excitatory current in the runaway state. Their 903 neurons and 1.8 M synapses are removed from the fast network.
