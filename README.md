@@ -9,6 +9,13 @@ hand controller. It decides how to use them from what its own compound eye sees.
 
 The video, 1:52 long, is rendered by `experiments/make_video.py`.
 
+Apart from the published data, everything here was built for this project:
+- the GPU port of the brain model
+- the connectome calibration
+- the compound-eye model
+- the lunar descent simulator with its guidance computer, terrain and 3D renderer
+- the video
+
 ---
 
 ## How it works
@@ -71,7 +78,8 @@ forward motion then looked like an approaching ground.
 The gains, thresholds and choice of readout neurons are design decisions, documented in
 `lander/visual_pilot.py`.
 
-**Apollo side.** `apollo_sim/` is a 2D lunar descent simulator. Its guidance follows the Luminary 099
+**Apollo side.** `apollo_sim/` is a 2D lunar descent simulator written from scratch for this project; no
+existing flight simulator is used. Its guidance follows the Luminary 099
 source of the Apollo 11 LM computer:
 - **Guidance:** the TTF cubic, the QUADGUID acceleration command, AFCCALC thrust limiting, the
   P63 → P64 → P65 switch criteria, the P66 ROD loop and the throttle logic around the fixed throttle position.
