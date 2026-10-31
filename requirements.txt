@@ -1,0 +1,11 @@
+# Install the CUDA build of PyTorch separately, e.g.
+#   pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+numpy>=2.0
+pandas>=2.2
+pyarrow>=15
+scipy>=1.13
+matplotlib>=3.8
+pygame>=2.6
+moderngl>=5.10
+imageio>=2.34
+imageio-ffmpeg>=0.5

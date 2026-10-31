@@ -1,0 +1,18 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+
+# large or downloaded inputs (see README for how to get them)
+data/
+external/
+downloads/
+
+# generated outputs (selected figures live in docs/img)
+results/
+*.mp4
+
+# local notes
+CLAUDE.md
+PROJE_DURUMU.md
+.claude/
